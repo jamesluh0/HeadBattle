@@ -2,7 +2,38 @@
 
 
 $(document).ready(function  (argument) {
-	// body...
+
+
+	var start = 0;
+	
+	$("h1").click(function(){
+
+		$("h1").hide();
+		$("p").hide();
+		$(".cover").hide();
+		start = 1;
+
+		$("#head").css("left",100).css("top",200);
+		$("#wig").css("left",1000).css("top",200);
+
+		count();
+
+		count(){
+			setTimeout(function()
+			{ 
+				alert("count");
+				
+			 }, 1000);
+		}
+		
+
+		setTimeout(function()
+			{ 
+				alert("head win");
+				
+			 }, 10000);
+	})
+
 
 document.addEventListener("keydown",keyDownHandler, false);	
 		//document.addEventListener("keyup",keyUpHandler, false);	
@@ -16,17 +47,19 @@ function keyDownHandler(event)
 	var moveObj = (keyPressed == "W" ||
 				   keyPressed == "A" ||
 				   keyPressed == "S" ||
-				   keyPressed == "D") ? "#head" : "#vic"; 
+				   keyPressed == "D") ? "#head" : "#wig"; 
 
 	var top =  parseInt($(moveObj).css("top"));
 	var height = parseInt($(moveObj).css("height"));
 	var left =  parseInt($(moveObj).css("left"));
 	var width = parseInt($(moveObj).css("width"));
+
+
 	switch (keyPressed) {
 		case "A":
 		case "J":
 		{	
-			console.log("Left : " + left);
+			
 			if (left - 50 >= 0) {
 				left -= 50;
 				$(moveObj).css("left", left);
@@ -36,7 +69,7 @@ function keyDownHandler(event)
 		case "D":
 		case "L":
 		{
-			console.log("Right : " + left);
+			
 			if (left + width < gWindowWidth) {
 				left += 50;
 				$(moveObj).css("left", left);
@@ -66,9 +99,23 @@ function keyDownHandler(event)
 			console.log("key = " + parseInt(event.keyCode) + ", keypressed = " + keyPressed);
 		}
 	}
+
+		if(
+		   $("#head").css("top") == $("#wig").css("top")
+		&& $("#head").css("left") == $("#wig").css("left")
+	  )	{
+				if(start == 1)
+				{
+					alert("wig win");
+				}
+				
+		}
+
+		console.log("head top:" + $("#head").css("top") + "head left:" + $("#head").css("left"));
+		console.log("vic top:" + $("#wig").css("top") + "vic left:" + $("#vic").css("left"));
+
 }
 
-	console.log("123");
-	console.log();
+	
 
 });
