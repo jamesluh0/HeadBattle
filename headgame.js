@@ -16,15 +16,7 @@ $(document).ready(function  (argument) {
 		$("#head").css("left",100).css("top",200);
 		$("#wig").css("left",1000).css("top",200);
 
-		count();
-
-		count(){
-			setTimeout(function()
-			{ 
-				alert("count");
-				
-			 }, 1000);
-		}
+		
 		
 
 		setTimeout(function()
